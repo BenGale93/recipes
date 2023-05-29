@@ -132,9 +132,7 @@ async fn display_recipes(State(app_state): State<Arc<AppState<'_>>>) -> Html<Str
 async fn new_recipe(State(app_state): State<Arc<AppState<'_>>>) -> Html<String> {
     let template = app_state.env.get_template("new").unwrap();
 
-    let r = template
-        .render(context!(recipes => app_state.recipes.lock().await.to_vec()))
-        .unwrap();
+    let r = template.render(context!()).unwrap();
 
     Html(r)
 }
