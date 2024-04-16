@@ -44,9 +44,17 @@ pub const NEW_TEMPLATE: &str = r##"
 {% extends "base" %}
 {% block content %}
 <form hx-post="/new_recipe" hx-target="#response">
-    <label>Name: <input type="text" name="name"></label>
-    <label>Ingredients: <textarea name="ingredients"></textarea></label>
-    <label>Recipe: <textarea name="recipe"></textarea></label>
+    <label>Name:</label>
+    <br>
+    <input type="text" name="name">
+    <br>
+    <label>Ingredients: </label>
+    <br>
+    <textarea name="ingredients"></textarea>
+    <br>
+    <label>Recipe: </label>
+    <br>
+    <textarea name="recipe"></textarea>
 <input type="submit" value="Submit">
 </form>
 
