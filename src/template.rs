@@ -8,6 +8,7 @@ pub const BASE_TEMPLATE: &str = r##"
     <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/new">New</a>
+    <a href="/roast">Roast</a>
     </div>
     {% block content %}
     {% endblock %}
@@ -60,4 +61,26 @@ pub const NEW_TEMPLATE: &str = r##"
 
 <div id="response"></div>
 {% endblock %}
+"##;
+
+pub const ROAST_TEMPLATE: &str = r##"
+{% extends "base" %}
+{% block content %}
+<form hx-post="/roast" hx-target="#response" hx-trigger="load, click">
+    <label>End time:</label>
+    <br>
+    <input type="text" name="end" value="{{end}}">
+<input type="submit" value="Submit">
+</form>
+
+<div id="response"></div>
+{% endblock %}
+"##;
+
+pub const STEPS_TEMPLATE: &str = r##"
+<table>
+{% for (step, time) in steps %}
+    <tr><td>{{step}}</td><td>{{time}}</td></tr>
+{% endfor %}
+</table>
 "##;
